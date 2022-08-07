@@ -1,0 +1,62 @@
+options:
+    Nome:  &6OpenCodes
+    Codigo_1: "codigo1"
+    Codigo_2: "codigo2"
+    Codigo_3: "codigo3"
+    Codigo_4: "codigo4"
+    Codigo_5: "codigo5"
+command /codigo [<text>]:
+	trigger:
+		if arg 1 is set:
+			if arg 1 is {@Codigo_1}:
+				if {codigo1.%player%} is false:
+					send "Codigo_1" to player
+					make console execute command "/say comando aqui"
+					wait 1 second
+					set {codigo1.%player%} to true
+				else:
+					send "&cCodigo ja usado!" to player
+			if arg 1 is {@Codigo_2}:
+				if {codigo2.%player%} is false:
+					send "Codigo_2" to player
+					make console execute command "/say comando aqui"
+					wait 1 second
+					set {codigo2.%player%} to true
+				else:
+					send "&cCodigo ja usado!" to player
+			if arg 1 is {@Codigo_3}:
+				if {codigo3.%player%} is false:
+					send "Codigo_3" to player
+					make console execute command "/say comando aqui"
+					wait 1 second
+					set {codigo3.%player%} to true
+				else:
+					send "&cCodigo ja usado!" to player
+			if arg 1 is {@Codigo_4}:
+				if {codigo4.%player%} is false:
+					send "Codigo_4" to player
+					make console execute command "/say comando aqui"
+					wait 1 second
+					set {codigo4.%player%} to true
+				else:
+					send "&cCodigo ja usado!" to player
+			if arg 1 is {@Codigo_5}:
+				if {codigo5.%player%} is false:
+					send "Codigo_5" to player
+					make console execute command "/say comando aqui"
+					wait 1 second
+					set {codigo5.%player%} to true
+				else:
+					send "&cCodigo ja usado!" to player					
+					
+		else:
+			send "{@Nome} &cUse /codigo <codigo>" to player
+command /codesreset:
+	trigger:
+		if player has permission "scodigos.*":
+			set {codigo1.%player%} to false
+			set {codigo2.%player%} to false
+			set {codigo3.%player%} to false
+			set {codigo4.%player%} to false
+			set {codigo5.%player%} to false
+			send "{@Nome} &aCodigos resetados para você" to player

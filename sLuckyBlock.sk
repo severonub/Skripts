@@ -1,0 +1,36 @@
+# Nome: sLuckyBlock
+# Versao: 1.0
+# Dependencias: WildSkript SkQuery,SkRayfall
+# Favor nao tirar os creditos
+# Faça bom uso =)
+
+
+
+# COLOCAR LUCKY BLOCK
+on place of a 95:4:
+	if name of player's tool is "&bLuckyBlock":
+		set {luckyblock.%block's location%} to block's location
+# QUEBRAR LUCKY BLOCK
+on break of a 95:4:
+	if {luckyblock.%block's location%} is set:
+		drop a diamond sword or diamond pickaxe or diamond chestplate or 64 5 or 393 or 392 or 394 or 275 or 270 or 256 or 345 or 397 or 133 or 329 at {luckyblock.%block's location%}
+		clear {luckyblock.%block's location%}
+on break of a 95:5:
+	if {luckyblockop.%block's location%} is set:
+		drop a book or 116 or 322:1 or 57 or 6 or 30 or 354 or 380 at {luckyblockop.%block's location%}
+		clear {luckyblockop.%block's location%}	
+# COMANDO LUCKY BLOCK		
+command /luckyblock:
+	aliases: lb
+	trigger:
+		if player has permission "luckyblock.lb":
+			give a 95:4 named "&bLuckyBlock" to player
+		else:
+			send "&cSem Permissao" to player
+# UPAR LUCKY BLOCK			
+on right click on 95:4 holding diamond:
+	if {luckyblock.%block's location%} is set:
+		remove 1 diamond from player's inventory
+		set block to 95:5
+		set {luckyblockop.%block's location%} to block's location
+		
